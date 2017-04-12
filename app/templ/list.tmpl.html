@@ -2,12 +2,14 @@
 
 <ul class="videoList">
     <li class="videoListItem" ng-repeat="video in videosCtrl.videos">
-        <img class="videoThumb"
+        <img ui-sref="main.videos.details({ videoId:video.contentDetails.videoId })"
+             class="videoThumb"
              ng-src="{{ video.snippet.thumbnails.high.url }}"
              alt="{{ video.snippet.thumbnails.default.url }}">
 
         <div class="videoListInfo">
-            <h4 class="videoTitle videoTitleLink">{{ video.snippet.title }}</h4>
+            <h4 ui-sref="main.videos.details({ videoId:video.contentDetails.videoId })"
+                class="videoTitle videoTitleLink">{{ video.snippet.title }}</h4>
             <br/>
             <h6 class="videoPublished"><b>Published on</b> {{ video.snippet.publishedAt | date }}</h6>
             <br/>

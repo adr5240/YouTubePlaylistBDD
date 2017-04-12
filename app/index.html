@@ -2,14 +2,29 @@
 <html ng-app="YouTubeApp">
     <head>
         <meta charset="utf-8">
+        <meta name=viewport content="width=device-width, initial-scale=1">
 
         <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+        <link rel="icon" href="./assets/img/YouTube-icon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="./assets/img/YouTube-icon.png" type="image/x-icon">
+
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/animation.css">
+        <link rel="stylesheet" href="assets/css/tablet.css"
+              media="screen and (min-width: 582px)">
+        <link rel="stylesheet" href="assets/css/mobile.css"
+              media="screen and (max-width: 481px)">
+        <link rel="stylesheet" href="assets/css/medium.css"
+              media="screen and (min-width: 481px) and (max-width: 768px)">
+
 
         <title>YouTube Playlist</title>
     </head>
     <body>
-        <div ui-view="videoList" class=""></div>
+        <div ui-view="videoList" class="" ng-show="videosCtrl.checkListView()"></div>
         <div ui-view="videoDetails" class=""></div>
 
         <script src="youtubeApp.js"></script>

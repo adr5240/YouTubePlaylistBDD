@@ -9,8 +9,11 @@ describe("The Videos Controller", function() {
             videosModel = $injector.get("VideosModel");
             $controller = $injector.get("$controller");
             $httpBackend = $injector.get("$httpBackend");
-            videosCtrl = $controller("VideosCtrl", { videosModel: videosModel });
+            videosCtrl = $controller("VideosCtrl");
+            $state = $injector.get("$state");
         });
+        $httpBackend.expectGET("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails,status&maxResults=10&playlistId=PLSi28iDfECJPJYFA4wjlF5KUucFvc0qbQ&key=AIzaSyCuv_16onZRx3qHDStC-FUp__A6si-fStw")
+            .respond(200, []);
     });
 
     it("should have a videos property, inits as an array", function() {
@@ -23,13 +26,14 @@ describe("The Videos Controller", function() {
         $httpBackend.flush();
     });
 
-    // it("videos array should become populated with video objects", function() {
-    //     videos = [];
-    //     videosModel.getAllVideos()
-    //         .then(function(results) {
-    //             videosCtrl.videos = results;
-    //         });
-    //     assert.isObject(videosCtrl.videos[0]);
-    // });
+    describe("the return to videos function", function() {
+        xit("should reset videosCtrl.currentVideo to undefined", function($state) {
+            videosCtrl.currentVideo = {};
+
+            expect($state).to.respondTo('go');
+            videosCtrl.returnToVideos();
+            expect(videosCtrl.currentVideo).to.be.an("undefined");
+        });
+    });
 
 });

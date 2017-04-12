@@ -29,19 +29,38 @@ angular.module('videos', [
             });
     }])
 
-    .controller('VideosCtrl', function(VideosModel) {
+    .controller('VideosCtrl', function($state, VideosModel) {
         let videosCtrl = this;
+
         videosCtrl.videos = [];
 
         VideosModel.getAllVideos()
             .then(function(results) {
-                cacheAllVideos(results);
+                videosCtrl.videos = results;
             });
 
-        function cacheAllVideos(videos) {
-            videosCtrl.videos = videos;
+        VideosModel.getVideo()
+            .then(function(result) {
+                videosCtrl.currentVideo = result;
+                if(videosCtrl.currentVideo) {
+                    videosCtrl.currentVideo.url = "https://www.youtube.com/embed/" + result.contentDetails.videoId;
+                }
+            });
+
+        function checkListView() {
+            return $state.current.name === 'main.videos';
         }
 
-        videosCtrl.getAllVideos = VideosModel.getAllVideos;
+        function returnToVideos() {
+            videosCtrl.currentVideo = undefined;
+
+            $state.go('main.videos', {
+
+            });
+        }
+        
+        videosCtrl.trustSrc = VideosModel.trustSrc;
+        videosCtrl.returnToVideos = returnToVideos;
+        videosCtrl.checkListView = checkListView;
     })
 ;

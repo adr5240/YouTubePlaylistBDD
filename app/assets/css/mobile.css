@@ -1,0 +1,40 @@
+/*-----------------------------------------------------*/
+/* Mobile CSS */
+/*-----------------------------------------------------*/
+
+div.videoListInfo {
+    max-width: 90%;
+    display: block;
+    margin: 10px auto 10px auto;
+}
+
+div.videoDetailInfo {
+    max-width: 70%;
+    word-break:normal;
+}
+
+h2.listTitle {
+    font-size: 18pt;
+}
+
+h6.videoDescriptionList {
+    display: none;
+}
+
+iframe#player {
+    display:block;
+    margin: auto;
+}
+
+img.videoThumb {
+    max-width: 90%;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+}
+
+li.videoListItem {
+    display: block;
+    width: 90%;
+    margin-bottom: 20px;
+}

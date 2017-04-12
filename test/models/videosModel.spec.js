@@ -17,8 +17,14 @@ describe("The Videos Model", function() {
     describe("getAllVideos function", function() {
         it("should return a promise", function() {
             result = videosModel.getAllVideos();
-
             expect(videosModel.getAllVideos().then).to.not.throw(Error);
+        });
+    });
+
+    describe("getVideo function", function() {
+        it("should return a promise", function() {
+            result = videosModel.getVideo();
+            expect(videosModel.getVideo().then).to.not.throw(Error);
         });
     });
 });

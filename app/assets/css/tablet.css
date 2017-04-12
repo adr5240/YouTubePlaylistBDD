@@ -1,0 +1,54 @@
+/*-----------------------------------------------------*/
+/* Tablet CSS */
+/*-----------------------------------------------------*/
+
+button.back {
+    margin: 10px 0 10px 0;
+}
+
+div.detailsView {
+    width: 90%;
+    margin: auto;
+}
+
+div.videoListInfo {
+    float: left;
+    max-width: 40%;
+    display: inline;
+    margin: 10px;
+}
+
+iframe#player {
+    float: left;
+    margin: 10px 15px 15px 10px;
+    min-height: 250px;
+    height: 100%;
+    width: 50%;
+}
+
+img.videoThumb {
+    float: left;
+    max-height: 370px;
+    max-width: 40%;
+    display: inline;
+    margin: 10px 20px 10px 10px;
+}
+
+li.videoItem {
+    border: none;
+}
+
+li.videoListItem {
+    width: 50%;
+    display: table;
+}
+
+li.videoDetail {
+    width: 80%;
+}
+
+ul.videoList {
+    align-content: center;
+    margin: auto;
+    width: 90%;
+}
