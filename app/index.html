@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  ng-app="YouTubeApp">
+<html ng-app="YouTubeApp">
     <head>
         <meta charset="utf-8">
 
@@ -9,7 +9,8 @@
         <title>YouTube Playlist</title>
     </head>
     <body>
-        <h1>Hello World</h1>
+        <div ui-view="videoList" class=""></div>
+        <div ui-view="videoDetails" class=""></div>
 
         <script src="youtubeApp.js"></script>
         <script src="controllers/videosController.js"></script>

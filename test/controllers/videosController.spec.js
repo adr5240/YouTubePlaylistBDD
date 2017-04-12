@@ -1,0 +1,35 @@
+var assert = chai.assert;
+var expect = chai.expect;
+
+describe("The Videos Controller", function() {
+
+    beforeEach(function() {
+        module("videos");
+        inject(function($injector) {
+            videosModel = $injector.get("VideosModel");
+            $controller = $injector.get("$controller");
+            $httpBackend = $injector.get("$httpBackend");
+            videosCtrl = $controller("VideosCtrl", { videosModel: videosModel });
+        });
+    });
+
+    it("should have a videos property, inits as an array", function() {
+        assert.isArray(videosCtrl.videos);
+    });
+
+    it("should make http request for videos if empty", function() {
+        $httpBackend.expectGET("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails,status&maxResults=10&playlistId=PLSi28iDfECJPJYFA4wjlF5KUucFvc0qbQ&key=AIzaSyCuv_16onZRx3qHDStC-FUp__A6si-fStw")
+            .respond(200, []);
+        $httpBackend.flush();
+    });
+
+    // it("videos array should become populated with video objects", function() {
+    //     videos = [];
+    //     videosModel.getAllVideos()
+    //         .then(function(results) {
+    //             videosCtrl.videos = results;
+    //         });
+    //     assert.isObject(videosCtrl.videos[0]);
+    // });
+
+});

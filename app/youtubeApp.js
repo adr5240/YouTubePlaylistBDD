@@ -2,7 +2,7 @@ angular.module('YouTubeApp', [
     'ui.router',
     'videos'
 ])
-    .config(function($stateProvider, $urlRouterProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('main', {
                 url: '',
@@ -10,5 +10,5 @@ angular.module('YouTubeApp', [
             })
         ;
         $urlRouterProvider.otherwise('/');
-    })
+    }])
 ;
